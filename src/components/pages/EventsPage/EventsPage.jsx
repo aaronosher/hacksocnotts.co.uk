@@ -18,7 +18,7 @@ const backgroundProp = {
   halfHeight: true,
 };
 
-const eventsPage = (props) => {
+const EventsPage = (props) => {
   const { events } = props;
   
   return (
