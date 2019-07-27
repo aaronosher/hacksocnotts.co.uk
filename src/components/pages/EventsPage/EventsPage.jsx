@@ -12,27 +12,23 @@ import { Footer } from '../../Footer';
 import EventsPageEvent from './EventsPageEvent';
 import backgroundImage from '../../../resources/events.jpg';
 
-class EventsPage extends Component {
-  backgroundProp = {
-    overlay: 'rgba(0, 0, 0, 0.7)',
-    image: backgroundImage,
-    halfHeight: true,
-  };
+const backgroundProp = {
+  overlay: 'rgba(0, 0, 0, 0.7)',
+  image: backgroundImage,
+  halfHeight: true,
+};
 
-  render() {
-    const { events } = this.props;
-
-    const sortedEvents = _.orderBy(events, event => event.start, ['asc']);
-
-    return (
-      <ResponsiveContainer heading={EventsPageHeading} background={this.backgroundProp}>
-        <div className={styles.eventsContainer}>
-          {_.map(sortedEvents, event => <EventsPageEvent event={event} key={event.id} />)}
-        </div>
-        <Footer />
-      </ResponsiveContainer>
-    );
-  }
+const eventsPage = (props) => {
+  const { events } = props;
+  
+  return (
+    <ResponsiveContainer heading={EventsPageHeading} background={backgroundProp}>
+      <div className={styles.eventsContainer}>
+        {_.map(sortedEvents, event => <EventsPageEvent event={event} key={event.id} />)}
+      </div>
+      <Footer />
+    </ResponsiveContainer>
+  );
 }
 
 EventsPage.propTypes = {
